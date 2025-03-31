@@ -1,36 +1,36 @@
 extern crate sdl2;
 
 // har hört att man ska använda dessa
-// use sdl2::render::Canvas;
-// use sdl2::video::Window;
+use sdl2::render::Canvas;
+use sdl2::video::Window;
 
-use sdl2::pixels::Color as sdlColor;
 use sdl2::event::Event;
 use sdl2::keyboard::Keycode;
-use sdl2::rect::Rect;
+// use sdl2::pixels::Color as sdlColor;
+// use sdl2::rect::Rect;
 // use sdl2::render::{Canvas, RenderTarget};
 
 use std::time::Duration;
-use std::time::Instant;
+// use std::time::Instant;
 
 struct Player {
     x: i128,
     y: i128,
     health: i16,
-    speed: f16,
+    speed: f64,
 }
 
-fn update(canvas: &mut Canvas<Window>) {
+fn update(_canvas: &mut Canvas<Window>) {
     return
 }
 
-fn draw(canvas: &mut Canvas<Window>) {
+fn draw(_canvas: &mut Canvas<Window>) {
     return
 }
 
 fn main() {
-    let width: i16 = 1500;
-    let height: i16 = 800;
+    let width:  u32 = 1500;
+    let height: u32 = 800;
     let mut player = Player {
         x: 0,
         y: 0,
@@ -82,8 +82,8 @@ fn main() {
             }
         }
 
-        update(&canvas);
-        draw(&canvas);
+        update(&mut canvas);
+        draw(&mut canvas);
 
         canvas.present();
         ::std::thread::sleep(Duration::new(0, 1_000_000_000u32 / 240));
